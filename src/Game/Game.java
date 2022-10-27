@@ -30,7 +30,7 @@ public class Game {
     private void gameLoop() {
         while (running) {
             printBoard();
-            IntTupel input = readMove();
+            IntTupel input = in.readMove();
             addMove(input, currentPlayer);
 
             currentPlayer = currentPlayer == Players.player1 ? Players.player2 : Players.player1;
@@ -50,7 +50,8 @@ public class Game {
         try {
             board.addMove(input.getX1(), input.getX2(), currentPlayer);
         } catch (NotValidMoveException e) {
-            //TODO add new input
+            //TODO beschreibung hinzufügen
+            addMove(in.readMove(), currentPlayer);
         }
     }
 }
