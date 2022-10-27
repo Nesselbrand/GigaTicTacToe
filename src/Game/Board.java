@@ -1,4 +1,7 @@
-package util;
+package Game;
+
+import util.NotValidMoveException;
+import util.Players;
 
 public class Board {
     private int[][] content;
@@ -19,7 +22,7 @@ public class Board {
         int y = y_raw - 1;
 
         if (content[x][y] == -1){
-
+            content[x][y] = currentPlayer;
         } else {
             throw new NotValidMoveException();
         }
