@@ -27,17 +27,30 @@ public class Game {
         currentPlayer = Players.player1;
     }
 
-    private void gameLoop() {//TODO einzelne Operationen als Methoden um zwischen Methoden jumpen zu können
+    private void gameLoop() {
         while (running) {
-            try {
-                out.print(board);
-                IntTupel input = in.readMove(); //x1 = x && x2 = y
-                board.addMove(input.getX1(), input.getX2(), Players.player1);
+            printBoard();
+            IntTupel input = readMove();
+            addMove(input, currentPlayer);
 
-                currentPlayer = currentPlayer == Players.player1 ? Players.player2 : Players.player1;
-            } catch (NotValidMoveException e) {
+            currentPlayer = currentPlayer == Players.player1 ? Players.player2 : Players.player1;
+        }
+    }
 
-            }
+    private void printBoard(){
+        out.print(board);
+    }
+
+    private IntTupel readMove(){
+        IntTupel input = in.readMove();//x1 = x && x2 = y
+        return input;
+    }
+
+    private void addMove(IntTupel input, Players currentPlayer){
+        try {
+            board.addMove(input.getX1(), input.getX2(), currentPlayer);
+        } catch (NotValidMoveException e) {
+            //TODO add new input
         }
     }
 }
