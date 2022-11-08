@@ -28,14 +28,13 @@ public class Game {
     }
 
     private void gameLoop() {
+        printBoard();
         while (running) {
             printBoard();
             int code;
             do {
-                IntTupel input = in.readMove();
-                code = addMove(input, currentPlayer);
-            } while (code != 0);
-
+                code = addMove(readMove(), currentPlayer);
+            } while (code != 1);
             currentPlayer = currentPlayer == Players.player1 ? Players.player2 : Players.player1;
         }
     }
