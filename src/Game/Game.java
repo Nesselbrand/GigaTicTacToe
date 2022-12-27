@@ -3,6 +3,7 @@ package Game;
 import IO.In;
 import IO.Out;
 import util.IntTupel;
+import util.Logic;
 import util.NotValidMoveException;
 import util.Players;
 
@@ -54,7 +55,11 @@ public class Game {
     private int addMove(Players currentPlayer){
         try {
             IntTupel input = readMove();
+            board.setActiveField(Logic.findActiveField(input));
+            System.out.println(board.getActiveField().toString());
             board.addMove(input.getX1(), input.getX2(), currentPlayer);
+            board.setNextActiveField(Logic.findNextBigField(input));
+            System.out.println(board.getNextActiveField().toString());
             return 1;
         } catch (NotValidMoveException e) {
             return -1;

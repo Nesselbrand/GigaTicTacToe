@@ -20,6 +20,7 @@ public class In {
             throw new NotValidMoveException();
         }
 
+        //region check if statement is legal
         if (s.length() != 2) {
             throw new NotValidMoveException();
         } else {
@@ -31,12 +32,16 @@ public class In {
             if (x2 < 1 || x2 > 9) {
                 throw new NotValidMoveException();
             } else {
-                input.setX1(x1);
-                input.setX2(x2);
+                input.setX1(x2);
+                input.setX2(x1);
             }
         }
+        //endregion
+
         return input;
     }
+
+
 
     private int convertCharToInt(String s1) throws NotValidMoveException {
         int i = -1;

@@ -24,4 +24,9 @@ public class IntTupel {
     public void setX2(int x2) {
         this.x2 = x2;
     }
+
+    @Override
+    public String toString() {
+        return x1 + " " + x2;
+    }
 }
