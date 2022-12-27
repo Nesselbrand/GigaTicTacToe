@@ -31,10 +31,10 @@ public class Game {
         printBoard();
         while (running) {
             printBoard();
-            int code;
+            int add_move_return_code;
             do {
-                code = addMove(readMove(), currentPlayer);
-            } while (code != 1);
+                add_move_return_code = addMove(readMove(), currentPlayer);
+            } while (add_move_return_code != 1);
             currentPlayer = currentPlayer == Players.player1 ? Players.player2 : Players.player1;
         }
     }
