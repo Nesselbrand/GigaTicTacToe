@@ -41,8 +41,6 @@ public class In {
         return input;
     }
 
-
-
     private int convertCharToInt(String s1) throws NotValidMoveException {
         int i = -1;
         char c = s1.toCharArray()[0];

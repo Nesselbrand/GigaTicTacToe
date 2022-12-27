@@ -20,4 +20,6 @@ public class Logic {
         result.setX2(rx2);
         return result;
     }
+
+    //TODO winlogic
 }
