@@ -28,12 +28,15 @@ public class Game {
     }
 
     private void gameLoop() {
-        printBoard();
         while (running) {
             printBoard();
             int add_move_return_code;
             do {
+                System.out.print("Turn: " + currentPlayer.name() + "\nYour move: ");
                 add_move_return_code = addMove(currentPlayer);
+                if (add_move_return_code == -1){
+                    System.out.println("The chosen move is invalid. Try again!\n");
+                }
             } while (add_move_return_code != 1);
             currentPlayer = currentPlayer == Players.player1 ? Players.player2 : Players.player1;
         }

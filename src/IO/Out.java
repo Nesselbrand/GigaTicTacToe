@@ -4,8 +4,8 @@ import Game.Board;
 
 public class Out {
     public void print(Board board) {
-
         System.out.println("   a  b  c  |  d  e  f  |  g  h  i");
+
         for (int i = 0; i < 9; i++) {
             int line = i + 1;
 
