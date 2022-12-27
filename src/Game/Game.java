@@ -43,7 +43,7 @@ public class Game {
         out.print(board);
     }
 
-    private IntTupel readMove(){
+    private IntTupel readMove() throws NotValidMoveException {
         IntTupel input = in.readMove();//x1 = x && x2 = y
         return input;
     }
