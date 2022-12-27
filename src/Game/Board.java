@@ -14,6 +14,8 @@ public class Board {
                 content[i][j] = -1;
             }
         }
+
+
     }
 
     public void addMove(int y_raw, int x_raw, Players player) throws NotValidMoveException { //x and y not 0 based
@@ -21,7 +23,7 @@ public class Board {
         int x = y_raw - 1;
         int y = x_raw - 1;
 
-        if (content[x][y] == -1){
+        if (content[x][y] == -1) {
             content[x][y] = currentPlayer;
         } else {
             throw new NotValidMoveException();
@@ -31,4 +33,7 @@ public class Board {
     public int[][] getContent() {
         return content;
     }
+
+
+
 }
