@@ -4,19 +4,27 @@ import Game.Board;
 
 public class Out {
     public void print(Board board) {
-        System.out.println(board.getContent()[1][1]);
+
         System.out.println("   a  b  c  |  d  e  f  |  g  h  i");
         for (int i = 0; i < 9; i++) {
-            int zeile = i + 1;
+            int line = i + 1;
 
             if (i == 3 || i == 6) {
                 System.out.println("-----------------------------------");
             }
-            if (zeile != 4 || zeile != 7) {
-                System.out.print(zeile + " ");
-            }
+            System.out.print(line + " ");
             for (int j = 0; j < 9; j++) {
-                System.out.print("[" + board.getContent()[i][j] + "]");
+                String content = " ";
+                switch(board.getContent()[i][j]){
+                    case 0:
+                        content = "X";
+                        break;
+                    case 1:
+                        content = "O";
+                        break;
+                }
+
+                System.out.print("[" + content + "]");
                 if (j == 2 || j == 5) {
                     System.out.print(" | ");
                 }
