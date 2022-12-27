@@ -33,7 +33,7 @@ public class Game {
             printBoard();
             int add_move_return_code;
             do {
-                add_move_return_code = addMove(readMove(), currentPlayer);
+                add_move_return_code = addMove(currentPlayer);
             } while (add_move_return_code != 1);
             currentPlayer = currentPlayer == Players.player1 ? Players.player2 : Players.player1;
         }
@@ -48,8 +48,9 @@ public class Game {
         return input;
     }
 
-    private int addMove(IntTupel input, Players currentPlayer){
+    private int addMove(Players currentPlayer){
         try {
+            IntTupel input = readMove();
             board.addMove(input.getX1(), input.getX2(), currentPlayer);
             return 1;
         } catch (NotValidMoveException e) {

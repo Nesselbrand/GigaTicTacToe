@@ -2,8 +2,6 @@ package IO;
 
 import Game.Board;
 
-import java.util.Arrays;
-
 public class Out {
     public void print(Board board) {
         System.out.println(board.getContent()[1][1]);
