@@ -1,6 +1,7 @@
 package IO;
 
 import util.IntTupel;
+import util.Logic;
 import util.NotValidMoveException;
 
 import java.io.BufferedReader;
@@ -24,10 +25,20 @@ public class In {
         if (s.length() != 2) {
             throw new NotValidMoveException();
         } else {
+            String s1 = s.substring(0, 1);
             String s2 = s.substring(1, 2);
 
-            int x1 = convertCharToInt(s2);
-            int x2 = Integer.parseInt(s.substring(0, 1));
+            int x1, x2;
+
+            if (Logic.isString(s1) && !Logic.isString(s2)){
+                x1 = convertCharToInt(s1);
+                x2 = Integer.parseInt(s2);
+            } else if (!Logic.isString(s1) && Logic.isString(s2)) {
+                x2 = convertCharToInt(s2);
+                x1 = Integer.parseInt(s1);
+            } else {
+                throw new NotValidMoveException();
+            }
 
             if (x2 < 1 || x2 > 9) {
                 throw new NotValidMoveException();

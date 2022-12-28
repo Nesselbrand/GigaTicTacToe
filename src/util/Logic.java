@@ -21,5 +21,14 @@ public class Logic {
         return result;
     }
 
+    public static boolean isString(String s){
+        try{
+            Integer.parseInt(s);
+            return false;
+        } catch (Exception e){
+            return true;
+        }
+    }
+
     //TODO winlogic
 }
