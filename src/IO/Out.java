@@ -14,7 +14,6 @@ public class Out {
                     System.out.println("   a  b  c  |  d  e  f  |" + Colors.GREEN_BRIGHT + "  g  h  i" + Colors.RESET);
         }
 
-
         for (int i = 0; i < 9; i++) {
             int line = i + 1;
 
