@@ -34,8 +34,8 @@ public class In {
                 x1 = convertCharToInt(s1);
                 x2 = Integer.parseInt(s2);
             } else if (!Logic.isString(s1) && Logic.isString(s2)) {
-                x2 = convertCharToInt(s2);
-                x1 = Integer.parseInt(s1);
+                x1 = convertCharToInt(s2);
+                x2 = Integer.parseInt(s1);
             } else {
                 throw new NotValidMoveException();
             }

@@ -56,6 +56,14 @@ public class Board {
         }
     }
 
+    public int[][] getSmallWinTracker() {
+        return smallWinTracker;
+    }
+
+    public void setXYValueSmallWinTracker(IntTupel activeeField, int input) {
+        smallWinTracker[activeeField.getX1() - 1][activeeField.getX2() - 1] = input;
+    }
+
     public int[][] getContent() {
         return content;
     }

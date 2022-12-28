@@ -33,17 +33,26 @@ public class Game {
             printBoard();
             int add_move_return_code;
             do {
-                System.out.print("Turn: " + currentPlayer.name() + " Your Field: " + board.getNextActiveField().toString() + "\nYour move: ");
+                out.print("Turn: " + currentPlayer.name() + "\nYour move: ");
                 add_move_return_code = addMove(currentPlayer);
-                if (add_move_return_code == -1){
-                    System.out.println("The chosen move is invalid. Try again!\n");
+                if (add_move_return_code == -1) {
+                    out.print("The chosen move is invalid. Try again!\n");
                 }
             } while (add_move_return_code != 1);
+            if (Logic.testForWin(board) != -1) {
+                printBoard();
+                running = false;
+                if (Logic.testForWin(board) == -2) {
+                    out.print("its a draw!");
+                } else {
+                    out.print(currentPlayer + " has won!");
+                }
+            }
             currentPlayer = currentPlayer == Players.player1 ? Players.player2 : Players.player1;
         }
     }
 
-    private void printBoard(){
+    private void printBoard() {
         out.print(board);
     }
 
@@ -52,12 +61,12 @@ public class Game {
         return input;
     }
 
-    private int addMove(Players currentPlayer){
+    private int addMove(Players currentPlayer) {
         try {
             IntTupel input = readMove();
             board.setActiveField(Logic.findActiveField(input));
             board.addMove(input.getX1(), input.getX2(), currentPlayer);
-            board.setNextActiveField(Logic.findNextBigField(input));
+            board.setNextActiveField(Logic.findNextBigField(input, board));
             return 1;
         } catch (NotValidMoveException e) {
             return -1;

@@ -12,6 +12,9 @@ public class Out {
                     System.out.println("   a  b  c  |" + Colors.GREEN_BRIGHT + "  d  e  f  " + Colors.RESET + "|  g  h  i");
             case 3 ->
                     System.out.println("   a  b  c  |  d  e  f  |" + Colors.GREEN_BRIGHT + "  g  h  i" + Colors.RESET);
+            default ->
+                    System.out.println("   a  b  c  |  d  e  f  |  g  h  i" );
+
         }
 
         for (int i = 0; i < 9; i++) {
@@ -42,5 +45,9 @@ public class Out {
             System.out.print("\n");
         }
         System.out.print("\n\n");
+    }
+
+    public void print(String s){
+        System.out.print(s);
     }
 }
