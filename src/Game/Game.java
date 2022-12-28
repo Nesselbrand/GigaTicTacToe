@@ -33,7 +33,7 @@ public class Game {
             printBoard();
             int add_move_return_code;
             do {
-                System.out.print("Turn: " + currentPlayer.name() + " Your Field: " + board.getNextActiveField().toString() + "\nYour move: ");
+                System.out.print("Turn: " + currentPlayer.name() + "\nYour move: ");
                 add_move_return_code = addMove(currentPlayer);
                 if (add_move_return_code == -1){
                     System.out.println("The chosen move is invalid. Try again!\n");
@@ -48,8 +48,7 @@ public class Game {
     }
 
     private IntTupel readMove() throws NotValidMoveException {
-        IntTupel input = in.readMove();//x1 = x && x2 = y
-        return input;
+        return in.readMove();
     }
 
     private int addMove(Players currentPlayer){
