@@ -20,7 +20,13 @@ public class Out {
             if (i == 3 || i == 6) {
                 System.out.println("-----------------------------------");
             }
-            System.out.print(line + " ");
+
+            if (Math.ceil(i / 3) + 1 == board.getNextActiveField().getX1()) {
+                System.out.print(Colors.GREEN_BRIGHT + line + Colors.RESET + " ");
+            } else {
+                System.out.print(line + " ");
+            }
+
             for (int j = 0; j < 9; j++) {
                 String content = switch (board.getContent()[i][j]) {
                     case 0 -> "X";
